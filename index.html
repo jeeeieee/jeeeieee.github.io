@@ -7,8 +7,9 @@
 <meta name="description" content="콘텐츠 마케터 · 캠페인 기획자 이지영의 포트폴리오와 마케팅 노트">
 <meta property="og:title" content="이지영 포트폴리오">
 <meta property="og:description" content="숫자로 설득하고, 이야기로 기억되게 합니다.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&family=Courier+Prime&family=DM+Serif+Display:ital@0;1&family=Homemade+Apple&display=swap">
+<!-- 글꼴은 사이트 안의 fonts/ 폴더에서 불러온다 (어느 기기·브라우저에서나 같은 글꼴) -->
+<link rel="preload" href="fonts/files/homemade-apple-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 /* Layout: 빈티지 캠페인 파일 — 바랜 분홍 종이 위에 버건디 잉크로 찍은 브리프 문서. 한 페이지를 스크롤하며 읽는 구성.
    종이 인쇄물 하나의 룩으로 고정한 디자인이라 라이트 단일 테마. */
@@ -495,8 +496,8 @@ body.owner .case-tools{display:flex}
 
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<script src="vendor/marked.min.js"></script>
+<script src="vendor/purify.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
