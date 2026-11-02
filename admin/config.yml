@@ -1,0 +1,64 @@
+# 이지영 포트폴리오 — 글 관리 설정
+# GitHub 아이디: jeeeieee  (저장소: jeeeieee.github.io)
+
+backend:
+  name: github
+  repo: jeeeieee/jeeeieee.github.io
+  branch: main
+  commit_messages:
+    update: "{{collection}} 수정"
+
+site_url: https://jeeeieee.github.io
+display_url: https://jeeeieee.github.io
+
+# 글에 넣는 사진이 저장되는 곳
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: content
+    label: 사이트 내용
+    files:
+      - name: notes
+        label: 마케팅 노트
+        file: data/notes.json
+        fields:
+          - name: notes
+            label: 글 목록
+            label_singular: 글
+            widget: list
+            add_to_top: true
+            summary: "{{fields.date}} · {{fields.title}}"
+            fields:
+              - { name: title, label: 제목, widget: string }
+              - name: date
+                label: 날짜
+                widget: datetime
+                format: YYYY-MM-DD
+                date_format: YYYY-MM-DD
+                time_format: false
+              - { name: tag, label: 주제, widget: string, hint: "예: 전략, 카피, 데이터, 회고. 새 주제를 쓰면 필터 버튼이 자동으로 생겨요." }
+              - { name: featured, label: 대표 글로 크게 보여주기, widget: boolean, default: false, required: false, hint: "켜면 노트 페이지 맨 위에 크게 걸려요. 하나만 켜 두세요." }
+              - { name: body, label: 본문, widget: markdown }
+
+      - name: cases
+        label: 캠페인 파일
+        file: data/cases.json
+        fields:
+          - name: cases
+            label: 캠페인 목록
+            label_singular: 캠페인
+            widget: list
+            summary: "{{fields.year}} · {{fields.title}}"
+            hint: "위에 있는 캠페인이 메인 페이지에서 먼저 보여요. 끌어서 순서를 바꿀 수 있어요."
+            fields:
+              - { name: title, label: 캠페인 이름, widget: string }
+              - { name: year, label: 연도, widget: string }
+              - { name: client, label: "분야 · 캠페인 종류", widget: string, hint: "예: F&B · 브랜드 런칭 캠페인" }
+              - { name: kpi, label: 대표 성과 숫자, widget: string, hint: "예: +218%" }
+              - { name: kpi_label, label: 성과 설명, widget: string, hint: "예: 첫 달 팔로워 증가" }
+              - { name: problem, label: "과제 (BRIEF)", widget: text }
+              - { name: insight, label: "인사이트 (INSIGHT)", widget: text }
+              - { name: idea, label: "실행 (IDEA)", widget: text }
+              - { name: result, label: "성과 (RESULT)", widget: text }
+              - { name: tags, label: 태그, widget: list, required: false, hint: "쉼표로 구분해요. 예: 브랜딩, SNS" }
