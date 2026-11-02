@@ -62,3 +62,23 @@ collections:
               - { name: idea, label: "실행 (IDEA)", widget: text }
               - { name: result, label: "성과 (RESULT)", widget: text }
               - { name: tags, label: 태그, widget: list, required: false, hint: "쉼표로 구분해요. 예: 브랜딩, SNS" }
+
+      - name: about
+        label: 소개 · 연락처
+        file: data/about.json
+        fields:
+          - { name: name, label: 이름, widget: string }
+          - { name: role, label: 하는 일, widget: string }
+          - { name: photo, label: 프로필 사진, widget: image, required: false, hint: "세로 사진이 잘 맞아요." }
+          - { name: intro, label: 소개 글, widget: text, hint: "빈 줄로 문단을 나눠요." }
+          - name: cv
+            label: 경력 · 학력 · 도구
+            label_singular: 항목
+            widget: list
+            summary: "{{fields.label}} · {{fields.text}}"
+            fields:
+              - { name: label, label: "왼쪽 칸 (기간 등)", widget: string }
+              - { name: text, label: 내용, widget: string }
+          - { name: contact_title, label: 연락처 큰 문구, widget: text }
+          - { name: email, label: 이메일, widget: string }
+          - { name: services, label: 맡을 수 있는 일, widget: list, required: false }
